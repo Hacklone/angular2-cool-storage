@@ -1,6 +1,6 @@
 {
   "name": "angular2-cool-storage",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Cool Storage wrapper for angular2.",
   "main": "index.js",
   "jsnext:main": "esm/index.js",
