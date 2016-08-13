@@ -3,7 +3,7 @@
 [downloads-image]: https://img.shields.io/npm/dm/angular2-cool-storage.svg
 [total-downloads-image]: https://img.shields.io/npm/dt/angular2-cool-storage.svg
 
-# angular2-cool-http [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url]  [![Total Downloads][total-downloads-image]][npm-url]
+# angular2-cool-storage [![NPM version][npm-image]][npm-url] [![Downloads][downloads-image]][npm-url]  [![Total Downloads][total-downloads-image]][npm-url]
 Cool angular2 wrapper for LocalStorage and SessionStorage
 
 ## Install 
@@ -11,14 +11,13 @@ Cool angular2 wrapper for LocalStorage and SessionStorage
 
 ## Setup
 ```javascript
-import { bootstrap } from '@angular/platform-browser/browser';
-import { COOL_STORAGE_PROVIDERS } from 'angular2-cool-storage';
+import { NgModule } from '@angular/core';
+import { CoolStorageModule } from 'angular2-cool-storage';
 
-import { MyApp } from './src/my-app'
-
-bootstrap(MyApp, [
-    COOL_STORAGE_PROVIDERS
-]);
+@NgModule({
+    imports: [CoolStorageModule]
+})
+export class MyAppModule {}
 ```
 
 ## Features
@@ -34,7 +33,7 @@ bootstrap(MyApp, [
 ```javascript
 import { Component, OnInit } from '@angular/core';
 
-import { CoolLocalStorage } from 'angular2-cool-http';
+import { CoolLocalStorage } from 'angular2-cool-storage';
 
 @Component({
   selector: 'my-app'
