@@ -1,7 +1,5 @@
-import { Injectable } from '@angular/core';
-
 export abstract class CoolStorageBase {
-    private storageObject: any
+    private storageObject: any;
 
     constructor(storageObject: any, storageObjectName: string) {
         if (!storageObject) {
