@@ -7,7 +7,7 @@
       "es6",
       "dom"
     ],
-    "mapRoot": "",
+    "mapRoot": "../../../../../",
     "module": "commonjs",
     "moduleResolution": "node",
     "noEmitOnError": false,
