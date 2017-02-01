@@ -27,7 +27,10 @@ export class MyAppModule {}
 - length
 - clear()
 - key(index)
+- itemSetObservable
+- itemRemovedObservable
 - getObject(key)
+- tryGetObject(key)
 - setObject(key, value)
 
 ```javascript
@@ -45,7 +48,7 @@ export class AppComponent implements OnInit {
         this.localStorage = localStorage;   
     }
     
-    async ngOnInit() {
+    ngOnInit() {
         this.localStorage.setItem('itemKey', 'itemValue');
         
         console.log(this.localStorage.getItem('itemKey'));

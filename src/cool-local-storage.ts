@@ -3,7 +3,7 @@ import { CoolStorageBase } from './cool-storage-base'
 
 @Injectable()
 export class CoolLocalStorage extends CoolStorageBase {
-    constructor() {
-        super(window.localStorage, 'LocalStorage');
-    }
+  constructor() {
+    super(window.localStorage, 'LocalStorage');
+  }
 }

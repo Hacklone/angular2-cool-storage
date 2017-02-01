@@ -1,49 +1,98 @@
+import { Observable, Subject } from 'rxjs';
+import { StorageChangeArguments } from './storage-change-arguments.interface';
+
 export abstract class CoolStorageBase {
-    private storageObject: any;
+  private _storageObject: any;
+  private _itemSetSubject: Subject<StorageChangeArguments>;
+  private _itemRemovedSubject: Subject<StorageChangeArguments>;
 
-    constructor(storageObject: any, storageObjectName: string) {
-        if (!storageObject) {
-            throw new Error(`Current browser does not support ${ storageObjectName }`);
-        }
-        
-        this.storageObject = storageObject;
-    }
-    
-    getItem(key: string): string {
-        return this.storageObject.getItem(key) || null;
+  constructor(storageObject: any, storageObjectName: string) {
+    if (!storageObject) {
+      throw new Error(`Current browser does not support ${ storageObjectName }`);
     }
 
-    setItem(key: string, value: string): void {
-        this.storageObject.setItem(key, value);
-    }  
-    
-    removeItem(key: string): void {
-        this.storageObject.removeItem(key);
-    }
-    
-    key(index: number): string {
-        return this.storageObject.key(index);
-    }
-    
-    clear(): void {
-        this.storageObject.clear();
-    }
-    
-    get length(): number {
-        return this.storageObject.length;
-    }
-    
-    getObject(key: string): any {
-        let jsonInStorage = this.getItem(key);
-        
-        if(jsonInStorage === null) {
-            return null;
-        }
-    
-        return JSON.parse(jsonInStorage);
-    }  
+    this._storageObject = storageObject;
 
-    setObject(key: string, value: any): void {
-        this.setItem(key, JSON.stringify(value));
+    this._itemSetSubject = new Subject<StorageChangeArguments>();
+    this._itemRemovedSubject = new Subject<StorageChangeArguments>();
+  }
+
+  public get itemSetObservable(): Observable<StorageChangeArguments> {
+    return this._itemSetSubject.asObservable();
+  }
+
+  public get itemRemovedObservable(): Observable<StorageChangeArguments> {
+    return this._itemRemovedSubject.asObservable();
+  }
+
+  public getItem(key: string): string {
+    return this._storageObject.getItem(key) || null;
+  }
+
+  public setItem(key: string, value: string): void {
+    this._itemSetSubject.next({
+      key,
+      value
+    });
+
+    this._setItemInStorage(key, value);
+  }
+
+  public removeItem(key: string): void {
+    let currentValue = this.tryGetObject(key);
+
+    if (!currentValue) {
+      currentValue = this.getItem(key);
     }
+
+    this._itemRemovedSubject.next({
+      key,
+      value: currentValue
+    });
+
+    this._storageObject.removeItem(key);
+  }
+
+  public key(index: number): string {
+    return this._storageObject.key(index);
+  }
+
+  public clear(): void {
+    this._storageObject.clear();
+  }
+
+  public get length(): number {
+    return this._storageObject.length;
+  }
+
+  public getObject(key: string): any {
+    let jsonInStorage = this.getItem(key);
+
+    if (jsonInStorage === null) {
+      return null;
+    }
+
+    return JSON.parse(jsonInStorage);
+  }
+
+  public tryGetObject(key: string): any {
+    try {
+      return this.getItem(key);
+    } catch(e) {
+      return null;
+    }
+  }
+
+  public setObject(key: string, value: any): void {
+    this._itemSetSubject.next({
+      key,
+      value
+    });
+
+    this._setItemInStorage(key, JSON.stringify(value));
+  }
+
+  private _setItemInStorage(key: string, value: string) {
+    this._storageObject.setItem(key, value);
+  }
 }

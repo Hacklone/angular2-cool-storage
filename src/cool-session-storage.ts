@@ -3,7 +3,7 @@ import { CoolStorageBase } from './cool-storage-base'
 
 @Injectable()
 export class CoolSessionStorage extends CoolStorageBase {
-    constructor() {
-        super(window.sessionStorage, 'SessionStorage');
-    }
+  constructor() {
+    super(window.sessionStorage, 'SessionStorage');
+  }
 }
