@@ -29,8 +29,8 @@ export class MyAppModule {}
 - key(index)
 - itemSetObservable
 - itemRemovedObservable
-- getObject(key)
-- tryGetObject(key)
+- getObject<T>(key)
+- tryGetObject<T>(key)
 - setObject(key, value)
 
 ```javascript

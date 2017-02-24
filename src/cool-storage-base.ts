@@ -65,19 +65,19 @@ export abstract class CoolStorageBase {
     return this._storageObject.length;
   }
 
-  public getObject(key: string): any {
+  public getObject<T>(key: string): T {
     let jsonInStorage = this.getItem(key);
 
     if (jsonInStorage === null) {
       return null;
     }
 
-    return JSON.parse(jsonInStorage);
+    return JSON.parse(jsonInStorage) as T;
   }
 
-  public tryGetObject(key: string): any {
+  public tryGetObject<T>(key: string): T {
     try {
-      return this.getItem(key);
+      return this.getObject<T>(key);
     } catch(e) {
       return null;
     }
