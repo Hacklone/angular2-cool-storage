@@ -7,15 +7,14 @@ export { CoolSessionStorage } from './src/cool-session-storage';
 export { StorageChangeArguments } from './src/storage-change-arguments.interface';
 
 @NgModule({
-  providers: []
+  providers: [CoolLocalStorage, CoolSessionStorage]
 })
 export class CoolStorageModule {
+  /** @deprecated */
   public static forRoot(): ModuleWithProviders {
     return {
       ngModule: CoolStorageModule,
-      providers: [
-        CoolLocalStorage, CoolSessionStorage
-      ]
+      providers: []
     };
   }
 }
