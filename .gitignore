@@ -1,11 +1,11 @@
-/dist
-/tmp
-/compiled
+dist
+tmp
+compiled
 
-/node_modules
-/typings
+node_modules
+typings
 
-/.vscode
-/.idea
+.vscode
+.idea
 
 npm-debug.log

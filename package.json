@@ -1,10 +1,10 @@
 {
   "name": "angular2-cool-storage",
-  "version": "3.0.1",
+  "version": "3.0.2",
   "description": "Cool Storage wrapper for angular2.",
   "main": "index.js",
   "peerDependencies": {
-    "@angular/core": "2.4.8"
+    "@angular/core": "^4.0.0"
   },
   "scripts": {
     "build": "rm -rf ./dist && ngc && cp ./README.md ./dist/README.md && cp ./package.json ./dist/package.json"
@@ -40,10 +40,10 @@
   },
   "homepage": "https://github.com/Hacklone/angular2-cool-storage#readme",
   "devDependencies": {
-    "@angular/compiler": "2.4.8",
-    "@angular/compiler-cli": "2.4.8",
-    "@angular/platform-server": "2.4.8",
-    "rxjs": "5.2.0",
-    "typescript": "2.2.1"
+    "@angular/compiler": "^4.0.0",
+    "@angular/compiler-cli": "^4.0.0",
+    "@angular/platform-server": "^4.0.0",
+    "rxjs": "^5.2.0",
+    "typescript": "^2.2.1"
   }
 }
