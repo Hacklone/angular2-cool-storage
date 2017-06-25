@@ -15,7 +15,7 @@ export class CoolLocalStorage extends CoolStorageBase {
       if(isPlatformBrowser(platformId)) {
           super(window.localStorage, 'LocalStorage');
       }else{
-          super(new ServerStorage(), 'LocalStorage')
+          super(new ServerStorage(), 'LocalStorage');
       }
   }
 }

@@ -15,7 +15,7 @@ export class CoolSessionStorage extends CoolStorageBase {
     if(isPlatformBrowser(platformId)) {
       super(window.sessionStorage, 'SessionStorage');
     }else{
-      super(new ServerStorage(), 'SessionStorage')
+      super(new ServerStorage(), 'SessionStorage');
     }
   }
 }
