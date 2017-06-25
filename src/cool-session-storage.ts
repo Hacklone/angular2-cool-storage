@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable, Inject} from '@angular/core';
 import { CoolStorageBase } from './cool-storage-base'
 
 /**
@@ -7,9 +7,15 @@ import { CoolStorageBase } from './cool-storage-base'
 import { PLATFORM_ID } from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 
+import { ServerStorage } from './server-storage';
+
 @Injectable()
 export class CoolSessionStorage extends CoolStorageBase {
-  constructor(@Inject(PLATFORM_ID) platformId: string) {
-    super((isPlatformBrowser(platformId) ? window.sessionStorage : [], 'SessionStorage');
+  constructor(@Inject(PLATFORM_ID) platformId: Object) {
+    if(isPlatformBrowser(platformId)) {
+      super(window.sessionStorage, 'SessionStorage');
+    }else{
+      super(new ServerStorage(), 'SessionStorage')
+    }
   }
 }
