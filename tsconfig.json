@@ -10,7 +10,7 @@
     "module": "commonjs",
     "moduleResolution": "node",
     "noEmitOnError": false,
-    "noImplicitAny": false,
+    "noImplicitAny": true,
     "outDir": "dist",
     "rootDir": ".",
     "sourceMap": true,

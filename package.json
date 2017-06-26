@@ -1,10 +1,12 @@
 {
   "name": "angular2-cool-storage",
-  "version": "3.0.3",
+  "version": "3.1.0",
   "description": "Cool Storage wrapper for angular2.",
   "main": "index.js",
   "peerDependencies": {
-    "@angular/core": "^4.0.0"
+    "@angular/core": "^4.0.0",
+    "@angular/common": "^4.0.0",
+    "rxjs": "^5.0.0"
   },
   "scripts": {
     "build": "rm -rf ./dist && ngc && cp ./README.md ./dist/README.md && cp ./package.json ./dist/package.json"
@@ -25,7 +27,8 @@
     "cool-local-storage",
     "cool-session-storage",
     "CoolLocalStorage",
-    "CoolSessionStorage"
+    "CoolSessionStorage",
+    "Universal"
   ],
   "author": "Hacklone <toakak@gmail.com>",
   "license": "MIT",
@@ -43,7 +46,11 @@
     "@angular/compiler": "^4.0.0",
     "@angular/compiler-cli": "^4.0.0",
     "@angular/platform-server": "^4.0.0",
-    "rxjs": "^5.2.0",
+    "rxjs": "^5.4.1",
     "typescript": "^2.2.1"
+  },
+  "dependencies": {
+    "@angular/common": "^4.2.4",
+    "@angular/core": "^4.2.4"
   }
 }

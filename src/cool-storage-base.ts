@@ -78,7 +78,7 @@ export abstract class CoolStorageBase {
   public tryGetObject<T>(key: string): T {
     try {
       return this.getObject<T>(key);
-    } catch(e) {
+    } catch (e) {
       return null;
     }
   }

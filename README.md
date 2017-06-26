@@ -21,6 +21,12 @@ export class MyAppModule {}
 ```
 
 ## Features
+
+- LocalStorage support
+- SessionStorage support
+- Universal support
+
+## API
 - getItem(key)
 - setItem(key, value)
 - removeItem(key)

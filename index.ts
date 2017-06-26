@@ -1,4 +1,4 @@
-import {NgModule, ModuleWithProviders} from '@angular/core';
+import { NgModule, ModuleWithProviders } from '@angular/core';
 
 import { CoolLocalStorage } from './src/cool-local-storage';
 export { CoolLocalStorage } from './src/cool-local-storage';
