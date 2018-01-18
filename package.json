@@ -1,6 +1,6 @@
 {
   "name": "angular2-cool-storage",
-  "version": "3.1.4",
+  "version": "3.1.5",
   "description": "Cool Storage wrapper for angular2.",
   "main": "index.js",
   "peerDependencies": {
@@ -48,9 +48,5 @@
     "@angular/platform-server": "^5.0.0",
     "rxjs": "^5.5.5",
     "typescript": "2.4.2"
-  },
-  "dependencies": {
-    "@angular/common": "^5.1.0",
-    "@angular/core": "^5.1.0"
   }
 }
